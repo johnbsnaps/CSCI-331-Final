@@ -1,5 +1,3 @@
-/* src/app/global.css */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,6 +9,7 @@ body {
   height: 100%;
 }
 
+/* Got from StackOverflow */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     sans-serif;
@@ -54,7 +53,7 @@ body {
   color: #fff;
 }
 
-/* Hero */
+/* Got from StackOverflow */
 .hero {
   display: flex;
   align-items: center;
@@ -83,6 +82,7 @@ body {
   gap: 12px;
 }
 
+/* Got from StackOverflow */
 .hero-button {
   padding: 12px 26px;
   border-radius: 6px;
@@ -141,6 +141,7 @@ body {
   border-radius: 3px;
 }
 
+/* Got from StackOverflow */
 .row-card {
   min-width: 140px;
   max-width: 140px;
@@ -155,6 +156,7 @@ body {
   padding: 0;
 }
 
+/* Got from StackOverflow */
 .row-card-image {
   width: 100%;
   height: 190px;
@@ -162,6 +164,7 @@ body {
   background: #111;
 }
 
+/* Got from StackOverflow */
 .row-card-title {
   font-size: 0.8rem;
   padding: 6px 8px 10px;
@@ -172,11 +175,12 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Browse page */
+/* Got from StackOverflow */
 .browse-page {
   padding: 40px;
 }
 
+/* Got from StackOverflow */
 .search-input {
   padding: 8px;
   margin: 10px 0 20px;

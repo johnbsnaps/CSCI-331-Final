@@ -1,4 +1,3 @@
-// src/app/movies/page.jsx
 import Movies from '../components/Movies';
 
 export default function MoviesPage() {

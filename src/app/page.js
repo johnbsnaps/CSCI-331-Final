@@ -1,11 +1,10 @@
-// src/app/page.js
 import Link from 'next/link';
 import MovieRows from './components/MovieRows';
 
 export default function HomePage() {
   return (
     <main className="page">
-      {/* Top bar */}
+      {/* Top */}
       <header className="top-nav">
         <div className="logo">Movies</div>
         <nav className="nav-links">

@@ -1,4 +1,3 @@
-// src/app/layout.js
 import './global.css';
 
 export const metadata = {

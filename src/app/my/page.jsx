@@ -20,7 +20,6 @@ export default function MyPage() {
 
     loadLocalFavorites();
 
-    // Keep in sync if localStorage changes in another tab.
     const listener = (event) => {
       if (event.key === 'favorites') loadLocalFavorites();
     };

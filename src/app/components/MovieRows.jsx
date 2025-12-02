@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
+//Just to make srue everything is working
 const IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
-// Hard-coded for now so we know it's working
 const API_KEY = '2806c5d20041a0ea55284ddc2847ebca';
 
 export default function MovieRows() {
@@ -14,6 +14,7 @@ export default function MovieRows() {
   useEffect(() => {
     async function loadMovies() {
       try {
+        //Unique API_KEY
         const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
         const res = await fetch(url);
 
@@ -43,6 +44,7 @@ export default function MovieRows() {
   const firstRow = movies.slice(0, 10);
   const secondRow = movies.slice(10, 20);
 
+  //Got this from StackOverflow
   function handleSave(movie) {
     const ratingInput = window.prompt(
       `Rate "${movie.title}" from 1-5 (optional):`,
