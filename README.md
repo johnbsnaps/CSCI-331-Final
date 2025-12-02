@@ -1,46 +1,32 @@
-# Movie Explorer (CSCI 331 Final)
+# CSCI 331 Final Project
 
-A simple Next.js app for browsing movies via TMDB, saving favorites locally, and revisiting them later.
+This is our final project for CSCI 331. We built a small movie website where you can browse movies, search for movies, and save your favorites.
 
 ## Features
-- Browse landing page with trending rows sourced from TMDB.
-- Search page that queries TMDB by title and saves movies to localStorage with optional rating/comment.
-- "My Stuff" page that reads favorites from localStorage and lists saved movies.
-- App Router project with client components and basic global styling.
+- Home page with movie categories
+- Search page that shows results from the TMDB movie API
+- ‚ÄúMy Stuff‚Äù page that shows movies you saved
+- Small database using Supabase to store saved movies
+- Hosted online using Vercel
 
-## Tech Stack
-- Next.js 16 (App Router)
-- React 19
-- TMDB API for movie data
-- Supabase client dependency (not required for core flow; available if you add backend features)
+## Tools Used
+- Next.js
+- React
+- TMDB API
+- Vercel (hosting)
 
-## Getting Started
-1) Install dependencies:
-   ```bash
-   npm install
-   ```
-2) Run the dev server:
-   ```bash
-   npm run dev
-   ```
-   The app will be available at http://localhost:3000.
+## How It Works
+- The home page shows trending movies
+- The browse page lets you search for any movie
+- You can click ‚ÄúSave‚Äù on a movie
+- Saved movies show up on the ‚ÄúMy Stuff‚Äù page
+- All data is stored locally
 
-## Environment Variables
-Create `.env.local` (already ignored by git) if you want to supply your own keys:
-- `NEXT_PUBLIC_TMDB_API_KEY` (optional) ñ replace the in-code demo key for TMDB requests.
-- `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` (optional) ñ only needed if you add Supabase features.
+## Purpose
+The goal of this project was to build a complete website with:
+- A working frontend
+- A live API
+- Hosting on the web
 
-## Usage
-- Home: quick links and two TMDB rows (Trending Now, Top Picks for You). Click a poster to save with an optional rating/comment.
-- Browse: search by title, view results in a table, click a row or the Save button to store the movie.
-- My Stuff: view everything saved in `localStorage` under `favorites`; shows poster, rating, and comment if provided.
-
-## Scripts
-- `npm run dev` ñ start the development server.
-- `npm run build` ñ production build.
-- `npm run start` ñ run the built app.
-- `npm run lint` ñ lint with ESLint.
-
-## Notes
-- Favorites persist in the browser only (no server storage).
-- This product uses the TMDB API but is not endorsed or certified by TMDB.
+## Author
+John Mark Brown and Reece Mayala
