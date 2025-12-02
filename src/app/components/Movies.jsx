@@ -24,7 +24,6 @@ export default function Movies() {
       const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${encodeURIComponent(
         q
       )}&page=1&include_adult=false`;
-      console.log('Searching:', url);
 
       const res = await fetch(url);
 
@@ -35,7 +34,6 @@ export default function Movies() {
       }
 
       const data = await res.json();
-      console.log('Search data:', data);
       setMovies(data.results || []);
     } catch (err) {
       console.error('Search failed:', err);
@@ -47,7 +45,43 @@ export default function Movies() {
 
   useEffect(() => {
     searchMovies(query);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  function saveFavorite(movie) {
+    const ratingInput = window.prompt(
+      `Rate "${movie.title}" from 1-5 (optional):`,
+      '5'
+    );
+    const rating = ratingInput ? Number(ratingInput) : null;
+    const comment = window.prompt(
+      `Add a short comment for "${movie.title}" (optional):`,
+      ''
+    );
+
+    const favorite = {
+      tmdb_id: movie.id,
+      title: movie.title,
+      poster_path: movie.poster_path,
+    };
+
+    if (Number.isFinite(rating)) favorite.rating = rating;
+    if (comment) favorite.comment = comment;
+
+    try {
+      const raw = window.localStorage.getItem('favorites');
+      const existing = raw ? JSON.parse(raw) : [];
+      const withoutDupes = existing.filter(
+        (f) => f.tmdb_id !== favorite.tmdb_id
+      );
+      const updated = [favorite, ...withoutDupes];
+      window.localStorage.setItem('favorites', JSON.stringify(updated));
+      alert(comment ? 'Saved with your rating and comment!' : 'Saved!');
+    } catch (err) {
+      console.error('Local save error:', err);
+      alert('Could not save locally. Check storage permissions.');
+    }
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -87,11 +121,16 @@ export default function Movies() {
               <th>Poster</th>
               <th>Release Date</th>
               <th>Rating</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {movies.map((m) => (
-              <tr key={m.id}>
+              <tr
+                key={m.id}
+                onClick={() => saveFavorite(m)}
+                style={{ cursor: 'pointer' }}
+              >
                 <td>{m.title}</td>
                 <td>
                   {m.poster_path && (
@@ -104,6 +143,18 @@ export default function Movies() {
                 </td>
                 <td>{m.release_date}</td>
                 <td>{m.vote_average?.toFixed(1)}</td>
+                <td>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      saveFavorite(m);
+                    }}
+                    style={{ padding: '4px 8px', cursor: 'pointer' }}
+                  >
+                    Save
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

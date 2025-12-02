@@ -149,6 +149,10 @@ body {
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+  color: inherit;
+  text-align: left;
+  padding: 0;
 }
 
 .row-card-image {
@@ -189,6 +193,10 @@ body {
 .movies-table td {
   border-bottom: 1px solid #333;
   padding: 8px;
+}
+
+.movies-table tbody tr {
+  cursor: pointer;
 }
 
 .table-image {
