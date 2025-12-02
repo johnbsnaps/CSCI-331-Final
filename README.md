@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Movie Explorer (CSCI 331 Final)
+
+A simple Next.js app for browsing movies via TMDB, saving favorites locally, and revisiting them later.
+
+## Features
+- Browse landing page with trending rows sourced from TMDB.
+- Search page that queries TMDB by title and saves movies to localStorage with optional rating/comment.
+- "My Stuff" page that reads favorites from localStorage and lists saved movies.
+- App Router project with client components and basic global styling.
+
+## Tech Stack
+- Next.js 16 (App Router)
+- React 19
+- TMDB API for movie data
+- Supabase client dependency (not required for core flow; available if you add backend features)
 
 ## Getting Started
+1) Install dependencies:
+   ```bash
+   npm install
+   ```
+2) Run the dev server:
+   ```bash
+   npm run dev
+   ```
+   The app will be available at http://localhost:3000.
 
-First, run the development server:
+## Environment Variables
+Create `.env.local` (already ignored by git) if you want to supply your own keys:
+- `NEXT_PUBLIC_TMDB_API_KEY` (optional) – replace the in-code demo key for TMDB requests.
+- `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` (optional) – only needed if you add Supabase features.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Usage
+- Home: quick links and two TMDB rows (Trending Now, Top Picks for You). Click a poster to save with an optional rating/comment.
+- Browse: search by title, view results in a table, click a row or the Save button to store the movie.
+- My Stuff: view everything saved in `localStorage` under `favorites`; shows poster, rating, and comment if provided.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
+- `npm run dev` – start the development server.
+- `npm run build` – production build.
+- `npm run start` – run the built app.
+- `npm run lint` – lint with ESLint.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+- Favorites persist in the browser only (no server storage).
+- This product uses the TMDB API but is not endorsed or certified by TMDB.
