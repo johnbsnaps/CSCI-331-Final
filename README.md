@@ -29,4 +29,4 @@ The goal of this project was to build a complete website with:
 - Hosting on the web
 
 ## Author
-John Mark Brown
+John Mark Brown and Reece Mayala
