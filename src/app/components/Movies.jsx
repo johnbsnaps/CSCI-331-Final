@@ -55,11 +55,22 @@ export default function Movies() {
       `Rate "${movie.title}" from 1-5 (optional):`,
       '5'
     );
-    const rating = ratingInput ? Number(ratingInput) : null;
+    if (ratingInput === null) return; // cancel should fully abort
+
     const comment = window.prompt(
       `Add a short comment for "${movie.title}" (optional):`,
       ''
     );
+    if (comment === null) return; // cancel should fully abort
+
+    const trimmedRating = ratingInput.trim();
+    const parsedRating =
+      trimmedRating === '' ? null : Number.parseFloat(trimmedRating);
+    if (trimmedRating !== '' && !Number.isFinite(parsedRating)) {
+      alert('Invalid rating. Save canceled.');
+      return;
+    }
+    const rating = Number.isFinite(parsedRating) ? parsedRating : null;
 
     const favorite = {
       tmdb_id: movie.id,

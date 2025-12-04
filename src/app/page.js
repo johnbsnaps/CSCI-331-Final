@@ -4,7 +4,7 @@ import MovieRows from './components/MovieRows';
 export default function HomePage() {
   return (
     <main className="page">
-      {/* Top */}
+      {/* Nav barrr */}
       <header className="top-nav">
         <div className="logo">Movies</div>
         <nav className="nav-links">
@@ -14,7 +14,7 @@ export default function HomePage() {
         </nav>
       </header>
 
-      {/* Hero section */}
+      {/* Top of the website */}
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-title">Unlimited Movies, Just for You.</h1>
@@ -32,9 +32,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Rows under the hero */}
+      {/* Rows of the movies */}
       <section id="rows" className="rows-section">
         <MovieRows />
+                <MovieRows />
+
+        <MovieRows />
+
       </section>
     </main>
   );

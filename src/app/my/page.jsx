@@ -6,6 +6,8 @@ import Link from 'next/link';
 export default function MyPage() {
   const [favorites, setFavorites] = useState([]);
 
+  //Got off the internet
+  //Saves to a local json file in the web
   useEffect(() => {
     function loadLocalFavorites() {
       try {
