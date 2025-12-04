@@ -35,10 +35,6 @@ export default function HomePage() {
       {/* Rows of the movies */}
       <section id="rows" className="rows-section">
         <MovieRows />
-                <MovieRows />
-
-        <MovieRows />
-
       </section>
     </main>
   );
